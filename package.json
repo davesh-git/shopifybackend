@@ -1,0 +1,29 @@
+{
+  "name": "ShopifyBackend",
+  "version": "1.0.0",
+  "description": "Personal Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chilkat/ck-node11-macosx": "^9.50.78",
+    "@chilkat/ck-node8-macosx": "^9.50.78",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "chilkat_node6_macosx": "^9.50.76",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "request": "^2.88.0"
+  },
+  "engines": {
+    "node": "11.13.0"
+  }
+}

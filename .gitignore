@@ -1,0 +1,4 @@
+node_modules/
+certs/
+src/utils/appvaultutil.js
+src/utils/secvault.js
