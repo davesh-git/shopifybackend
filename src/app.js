@@ -215,7 +215,7 @@ app.get('/backend/registerwebhook/productupdate', (req, res) => {
 
 })
 
-app.post('/backend/callwebhook/productupdate', (req, res) => {
+app.post('/backend/callwebhook/productupdate', async (req, res) => {
     console.log('Received webhook')
     console.log('Output full request' + req)
     console.log('Output url' + req.url)
