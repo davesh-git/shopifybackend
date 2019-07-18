@@ -229,7 +229,7 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
 
     console.log('Validation-----')
 
-    const rawBody = await getRawBody(req);
+    const rawBody = await getRawBody(req.body);
    // const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(rawBody).digest('base64')
 
