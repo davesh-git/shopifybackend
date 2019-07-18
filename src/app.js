@@ -228,7 +228,7 @@ app.post('/backend/callwebhook/productupdate', (req, res) => {
 
     console.log('Validation-----')
 
-    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
+    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
 
     console.log('HMAC:' + HMAC + '/n Calculated HMAC: ' + newHMAC)
 
