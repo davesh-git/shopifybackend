@@ -222,7 +222,7 @@ app.post('/backend/callwebhook/productupdate', (req, res) => {
     console.log('Output:json' + JSON.stringify(req.body))
     console.log('Output body' + req.body.id)
     console.log('Output body2' + req.body.price)
-    console.log('Output body3' + req.body.variants)
+    console.log('Output body3' + req.body.variants);
 
     const HMAC = req.headers['x-shopify-hmac-sha256']
 
