@@ -15,6 +15,7 @@ const getRawBody = require('raw-body');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+app.use('/backend/registerwebhook/productupdate', bodyParser.raw({type: '*/*'}));
 const publicPath = path.join(__dirname, '../public')
 app.use(express.static(publicPath))
 
