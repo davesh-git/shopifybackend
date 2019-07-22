@@ -12,10 +12,11 @@ const getRawBody = require('raw-body');
 //const appvaultutil = require('./utils/appvaultutil.js')
 //const apirequestutil = require('./utils/apirequestutil.js')
 
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+// app.use(bodyParser.json()); // support json encoded bodies
+// app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.text({ type: 'text/html' }))
 
-app.use('/backend/registerwebhook/productupdate', bodyParser.raw({type: '*/*'}));
+// app.use('/backend/registerwebhook/productupdate', bodyParser.raw({type: '*/*'}));
 const publicPath = path.join(__dirname, '../public')
 app.use(express.static(publicPath))
 
@@ -232,9 +233,10 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
 
     //const rawBody = await getRawBody(req.body);
    // const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
-   const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
+//    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
+    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(req.body).digest('base64')
 
-   
+    console.log("New Test");
     console.log('HMAC:' + HMAC + '/n Calculated HMAC: ' + newHMAC)
 
 
