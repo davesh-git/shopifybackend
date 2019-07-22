@@ -227,22 +227,22 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
     // console.log('Output headers' + JSON.stringify(req.headers))
     console.log('Output:json' + JSON.stringify(req.body))
     console.log({ key: envVarUtil.envVars.SHOPIFY_SECRET_API_KEY });
-    
+
     // console.log('Output body' + req.body.id)
     // console.log('Output body2' + req.body.price)
     // console.log('Output body3' + req.body.variants);
 
-    const HMAC = req.headers['x-shopify-hmac-sha256']
+    const HMAC = req.headers['x-shopify-hmac-sha256'];
 
-    console.log('Validation-----')
+    console.log('Validation-----');
 
     //const rawBody = await getRawBody(req.body);
    // const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
 //    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
-    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(new Buffer(req.body, 'utf8')).digest('base64')
+    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(new Buffer(req.body, 'utf8')).digest('base64');
 
     console.log("New Test");
-    console.log('HMAC:' + HMAC + '/n Calculated HMAC: ' + newHMAC)
+    console.log('HMAC:' + HMAC + '/n Calculated HMAC: ' + newHMAC);
 
 
     if (HMAC == newHMAC)
