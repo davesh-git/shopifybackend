@@ -229,6 +229,10 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
     console.log('Raw Body');
     console.log(req.body);
     console.log({ key: envVarUtil.envVars.SHOPIFY_SECRET_API_KEY });
+    console.log("hmac before encoding");
+    console.log(crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(Buffer.from(req.body, 'utf8')));
+    console.log("hmac post encoding");
+    console.log(crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(Buffer.from(req.body, 'utf8')).digest('base64'));
 
     // console.log('Output body' + req.body.id)
     // console.log('Output body2' + req.body.price)
