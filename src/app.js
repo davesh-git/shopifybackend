@@ -226,6 +226,8 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
     // console.log('Output url' + req.url)
     // console.log('Output headers' + JSON.stringify(req.headers))
     console.log('Output:json' + JSON.stringify(req.body))
+    console.log('Raw Body');
+    console.log(req.body);
     console.log({ key: envVarUtil.envVars.SHOPIFY_SECRET_API_KEY });
 
     // console.log('Output body' + req.body.id)
@@ -237,8 +239,8 @@ app.post('/backend/callwebhook/productupdate', async (req, res) => {
     console.log('Validation-----');
 
     //const rawBody = await getRawBody(req.body);
-   // const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
-//    const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
+    //const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('hex')
+    //const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(JSON.stringify(req.body)).digest('base64')
     const newHMAC = crypto.createHmac('sha256', envVarUtil.envVars.SHOPIFY_SECRET_API_KEY).update(Buffer.from(req.body, 'utf8')).digest('base64');
 
     console.log("New Test");
