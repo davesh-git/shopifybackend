@@ -222,9 +222,9 @@ app.get('/backend/registerwebhook/productupdate', (req, res) => {
 
 app.post('/backend/callwebhook/productupdate', async (req, res) => {
     console.log('Received webhook')
-    // console.log('Output full request' + req)
-    // console.log('Output url' + req.url)
-    // console.log('Output headers' + JSON.stringify(req.headers))
+    console.log('Output full request' + req)
+    console.log('Output url' + req.url)
+    console.log('Output headers' + JSON.stringify(req.headers))
     console.log('Output:json' + JSON.stringify(req.body))
     console.log('Raw Body');
     console.log(req.body);
